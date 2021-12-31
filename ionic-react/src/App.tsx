@@ -1,8 +1,6 @@
 import {
   IonAlert,
   IonApp,
-  IonCard,
-  IonCardContent,
   IonCol,
   IonContent,
   IonGrid,
@@ -15,8 +13,6 @@ import {
   IonToolbar,
   setupIonicReact,
 } from '@ionic/react';
-import { calculatorOutline, refreshOutline } from 'ionicons/icons';
-import Home from './pages/Home';
 import BmiControls from './components/BmiControls';
 
 /* Core CSS required for Ionic components to work properly */
@@ -37,6 +33,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+
 import { useRef, useState } from 'react';
 import BmiResult from './components/BmiResult';
 import InputControl from './components/InputControl';

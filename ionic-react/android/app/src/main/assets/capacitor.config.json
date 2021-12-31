@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "ionic-react",
+	"appId": "io.chris.starter.first.ionic.app",
+	"appName": "BMI Calculator",
 	"webDir": "build",
 	"bundledWebRuntime": false
 }

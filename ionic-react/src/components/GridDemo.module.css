@@ -1,0 +1,11 @@
+.col {
+  border: 1px solid black;
+}
+
+.grid {
+  height: 30rem;
+}
+
+.grid ion-row {
+  height: 50%;
+}
