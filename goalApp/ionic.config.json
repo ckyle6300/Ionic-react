@@ -1,0 +1,7 @@
+{
+  "name": "goalApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
