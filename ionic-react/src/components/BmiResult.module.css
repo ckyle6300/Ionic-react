@@ -2,3 +2,13 @@
   --background: rgb(3, 3, 3);
   --color: white;
 }
+
+.result h2 {
+  font-size: 1rem;
+}
+
+.result h3 {
+  font-size: 2rem;
+  margin: 1.5rem 0rem;
+  font-weight: bold;
+}

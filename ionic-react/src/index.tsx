@@ -5,7 +5,7 @@ import GridDemo from './components/GridDemo';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GridDemo />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
