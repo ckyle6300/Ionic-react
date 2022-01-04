@@ -1,5 +1,4 @@
 import {
-  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
@@ -10,7 +9,7 @@ import {
 } from '@ionic/react';
 import React from 'react';
 
-const AllGoals: React.FC = () => {
+const Filter: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -18,14 +17,14 @@ const AllGoals: React.FC = () => {
           <IonButtons slot='start'>
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>All Goals</IonTitle>
+          <IonTitle>Filter</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <h2>this works --all goals page</h2>
+        <h2>The Filter Page</h2>
       </IonContent>
     </IonPage>
   );
 };
 
-export default AllGoals;
+export default Filter;

@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.goalAppChris",
+	"appName": "goalApp",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
