@@ -31,7 +31,6 @@ const CourseTabs: React.FC = () => {
           </Route>
         </Switch>
       </IonRouterOutlet>
-
       <IonTabBar slot='bottom'>
         <IonTabButton tab='a' href='/courses/all-goals'>
           <IonIcon icon={list} />

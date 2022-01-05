@@ -2,6 +2,9 @@ import {
   IonButton,
   IonCard,
   IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
   IonCol,
   IonContent,
   IonGrid,
@@ -14,9 +17,33 @@ import {
 import React from 'react';
 
 export const COURSE_DATA = [
-  { id: 'c1', title: 'Ionic + React - The Practical Guide' },
-  { id: 'c2', title: 'React.js - The Practical Guide' },
-  { id: 'c3', title: 'JavaScript - The Practical Guide' },
+  {
+    id: 'c1',
+    title: 'Ionic + React - The Practical Guide',
+    enrolled: new Date('03/22/2019'),
+    goals: [
+      { id: 'c1g1', text: 'Finish the course.' },
+      { id: 'c1g2', text: 'Learn a lot' },
+    ],
+  },
+  {
+    id: 'c2',
+    title: 'React.js - The Practical Guide',
+    enrolled: new Date('03/217/2019'),
+    goals: [
+      { id: 'c2g1', text: 'Finish the course.' },
+      { id: 'c2g2', text: 'Learn a lot' },
+    ],
+  },
+  {
+    id: 'c3',
+    title: 'JavaScript - The Practical Guide',
+    enrolled: new Date('03/05/2019'),
+    goals: [
+      { id: 'c3g1', text: 'Finish the course.' },
+      { id: 'c3g2', text: 'Learn a lot' },
+    ],
+  },
 ];
 
 const Courses: React.FC = () => {
@@ -32,12 +59,28 @@ const Courses: React.FC = () => {
           {COURSE_DATA.map((course, i) => (
             <IonRow key={course.id}>
               <IonCol sizeSm='6' offsetSm='3'>
-                <IonCard className='ion-text-center'>
+                <IonCard>
+                  <IonCardHeader>
+                    <IonCardTitle>{course.title}</IonCardTitle>
+                    <IonCardSubtitle>
+                      Enrolled on{' '}
+                      {course.enrolled.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                      })}
+                    </IonCardSubtitle>
+                  </IonCardHeader>
                   <IonCardContent>
-                    <h2>{course.title}</h2>
-                    <IonButton routerLink={`/courses/${course.id}`}>
-                      View Course Goals
-                    </IonButton>
+                    <div className='ion-text-right'>
+                      <IonButton
+                        fill='clear'
+                        color='secondary'
+                        routerLink={`/courses/${course.id}`}
+                      >
+                        View Course Goals
+                      </IonButton>
+                    </div>
                   </IonCardContent>
                 </IonCard>
               </IonCol>
