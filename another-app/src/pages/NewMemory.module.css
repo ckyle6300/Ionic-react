@@ -1,0 +1,15 @@
+.imagePreview {
+  width: 150px;
+  height: 150px;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.imagePreview h3 {
+  font-size: 1rem;
+  font-weight: normal;
+}
