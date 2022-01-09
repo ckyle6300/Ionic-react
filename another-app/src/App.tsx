@@ -1,3 +1,4 @@
+import React, { Suspense, lazy } from 'react';
 import {
   IonApp,
   IonIcon,
@@ -13,9 +14,9 @@ import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import { happy, sad } from 'ionicons/icons';
 
-import NewMemory from './pages/NewMemory';
-import BadMemory from './pages/BadMemory';
-import GoodMemory from './pages/GoodMemory';
+// import NewMemory from './pages/NewMemory';
+// import BadMemory from './pages/BadMemory';
+// import GoodMemory from './pages/GoodMemory';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -36,38 +37,47 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import './theme/theme.css';
+import MemoriesContextProvider from './data/MemoriesContextProvider';
 
 setupIonicReact();
+
+const NewMemory = lazy(() => import('./pages/NewMemory'));
+const BadMemory = lazy(() => import('./pages/BadMemory'));
+const GoodMemory = lazy(() => import('./pages/GoodMemory'));
 
 const App: React.FC = () => {
   return (
     <IonApp>
-      <IonReactRouter>
-        <IonTabs>
-          <IonRouterOutlet>
-            <Route exact path='/good-memories'>
-              <GoodMemory />
-            </Route>
-            <Route exact path='/bad-memories'>
-              <BadMemory />
-            </Route>
-            <Route exact path='/new-memories'>
-              <NewMemory />
-            </Route>
-            <Redirect to='/good-memories' />
-          </IonRouterOutlet>
-          <IonTabBar slot='bottom'>
-            <IonTabButton href='/good-memories' tab='good'>
-              <IonIcon icon={happy} />
-              <IonLabel>Good Memories</IonLabel>
-            </IonTabButton>
-            <IonTabButton href='/bad-memories' tab='bad'>
-              <IonIcon icon={sad} />
-              <IonLabel>Bad Memories</IonLabel>
-            </IonTabButton>
-          </IonTabBar>
-        </IonTabs>
-      </IonReactRouter>
+      <Suspense fallback={<p>Loading...</p>}>
+        <IonReactRouter>
+          <MemoriesContextProvider>
+            <IonTabs>
+              <IonRouterOutlet>
+                <Route exact path='/good-memories'>
+                  <GoodMemory />
+                </Route>
+                <Route exact path='/bad-memories'>
+                  <BadMemory />
+                </Route>
+                <Route exact path='/new-memories'>
+                  <NewMemory />
+                </Route>
+                <Redirect to='/good-memories' />
+              </IonRouterOutlet>
+              <IonTabBar slot='bottom'>
+                <IonTabButton href='/good-memories' tab='good'>
+                  <IonIcon icon={happy} />
+                  <IonLabel>Good Memories</IonLabel>
+                </IonTabButton>
+                <IonTabButton href='/bad-memories' tab='bad'>
+                  <IonIcon icon={sad} />
+                  <IonLabel>Bad Memories</IonLabel>
+                </IonTabButton>
+              </IonTabBar>
+            </IonTabs>
+          </MemoriesContextProvider>
+        </IonReactRouter>
+      </Suspense>
     </IonApp>
   );
 };
